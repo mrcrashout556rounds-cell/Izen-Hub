@@ -19,7 +19,17 @@ local PlayerTab = Window:CreateTab("Player", 4483362458)
 -- BOOST TAB
 ----------------------------------------------------
 
--- Jump Velocity (real velocity, not JumpPower)
+-- Jump Velocity Toggle
+local JumpToggle = BoostTab:CreateToggle({
+    Name = "Enable Jump Velocity",
+    CurrentValue = false,
+    Flag = "JumpToggle",
+    Callback = function(v)
+        _G.JumpEnabled = v
+    end,
+})
+
+-- Jump Velocity Slider
 local JumpVelocity = BoostTab:CreateSlider({
     Name = "Jump Velocity",
     Range = {0, 200},
@@ -31,7 +41,17 @@ local JumpVelocity = BoostTab:CreateSlider({
     end,
 })
 
--- Head Jump Boost
+-- Boost Toggle
+local BoostToggle = BoostTab:CreateToggle({
+    Name = "Enable Head Boost",
+    CurrentValue = false,
+    Flag = "BoostToggle",
+    Callback = function(v)
+        _G.BoostEnabled = v
+    end,
+})
+
+-- Boost Power Slider
 local HeadBoost = BoostTab:CreateSlider({
     Name = "Head Jump Boost",
     Range = {0, 200},
@@ -43,7 +63,17 @@ local HeadBoost = BoostTab:CreateSlider({
     end,
 })
 
--- Fling Power (Up + Backwards)
+-- Fling Toggle
+local FlingToggle = BoostTab:CreateToggle({
+    Name = "Enable Fling",
+    CurrentValue = false,
+    Flag = "FlingToggle",
+    Callback = function(v)
+        _G.FlingEnabled = v
+    end,
+})
+
+-- Fling Power Slider
 local FlingPower = BoostTab:CreateSlider({
     Name = "Fling Power",
     Range = {0, 300},
@@ -59,7 +89,17 @@ local FlingPower = BoostTab:CreateSlider({
 -- PLAYER TAB
 ----------------------------------------------------
 
--- WalkSpeed
+-- WalkSpeed Toggle
+local WalkToggle = PlayerTab:CreateToggle({
+    Name = "Enable WalkSpeed",
+    CurrentValue = false,
+    Flag = "WalkToggle",
+    Callback = function(v)
+        _G.WalkEnabled = v
+    end,
+})
+
+-- WalkSpeed Slider
 local WalkSpeed = PlayerTab:CreateSlider({
     Name = "Walk Speed",
     Range = {0, 50},
@@ -67,12 +107,21 @@ local WalkSpeed = PlayerTab:CreateSlider({
     CurrentValue = 16,
     Flag = "WalkSpeed",
     Callback = function(v)
-        local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-        if hum then hum.WalkSpeed = v end
+        _G.WalkSpeed = v
     end,
 })
 
--- Legit Fly Speed
+-- Fly Toggle
+local FlyToggle = PlayerTab:CreateToggle({
+    Name = "Enable Fly",
+    CurrentValue = false,
+    Flag = "FlyToggle",
+    Callback = function(v)
+        _G.FlyEnabled = v
+    end,
+})
+
+-- Fly Speed Slider
 local FlySpeed = PlayerTab:CreateSlider({
     Name = "Fly Speed",
     Range = {0, 200},
@@ -84,7 +133,17 @@ local FlySpeed = PlayerTab:CreateSlider({
     end,
 })
 
--- Head Size (Other Players)
+-- HeadSize Toggle
+local HeadToggle = PlayerTab:CreateToggle({
+    Name = "Enable Head Size",
+    CurrentValue = false,
+    Flag = "HeadToggle",
+    Callback = function(v)
+        _G.HeadSizeEnabled = v
+    end,
+})
+
+-- Head Size Slider
 local HeadSize = PlayerTab:CreateSlider({
     Name = "Other Player Head Size",
     Range = {1.0, 5.0},
