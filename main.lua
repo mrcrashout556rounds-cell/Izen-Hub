@@ -9,9 +9,6 @@ local Window = Rayfield:CreateWindow({
     }
 })
 
-----------------------------------------------------
--- TABS
-----------------------------------------------------
 local BoostTab = Window:CreateTab("Boost", 4483362458)
 local PlayerTab = Window:CreateTab("Player", 4483362458)
 
@@ -19,8 +16,7 @@ local PlayerTab = Window:CreateTab("Player", 4483362458)
 -- BOOST TAB
 ----------------------------------------------------
 
--- Jump Velocity Toggle
-local JumpToggle = BoostTab:CreateToggle({
+BoostTab:CreateToggle({
     Name = "Enable Jump Velocity",
     CurrentValue = false,
     Flag = "JumpToggle",
@@ -29,8 +25,7 @@ local JumpToggle = BoostTab:CreateToggle({
     end,
 })
 
--- Jump Velocity Slider
-local JumpVelocity = BoostTab:CreateSlider({
+BoostTab:CreateSlider({
     Name = "Jump Velocity",
     Range = {0, 200},
     Increment = 5,
@@ -41,8 +36,7 @@ local JumpVelocity = BoostTab:CreateSlider({
     end,
 })
 
--- Boost Toggle
-local BoostToggle = BoostTab:CreateToggle({
+BoostTab:CreateToggle({
     Name = "Enable Head Boost",
     CurrentValue = false,
     Flag = "BoostToggle",
@@ -51,8 +45,7 @@ local BoostToggle = BoostTab:CreateToggle({
     end,
 })
 
--- Boost Power Slider
-local HeadBoost = BoostTab:CreateSlider({
+BoostTab:CreateSlider({
     Name = "Head Jump Boost",
     Range = {0, 200},
     Increment = 5,
@@ -63,8 +56,7 @@ local HeadBoost = BoostTab:CreateSlider({
     end,
 })
 
--- Fling Toggle
-local FlingToggle = BoostTab:CreateToggle({
+BoostTab:CreateToggle({
     Name = "Enable Fling",
     CurrentValue = false,
     Flag = "FlingToggle",
@@ -73,8 +65,7 @@ local FlingToggle = BoostTab:CreateToggle({
     end,
 })
 
--- Fling Power Slider
-local FlingPower = BoostTab:CreateSlider({
+BoostTab:CreateSlider({
     Name = "Fling Power",
     Range = {0, 300},
     Increment = 10,
@@ -89,8 +80,7 @@ local FlingPower = BoostTab:CreateSlider({
 -- PLAYER TAB
 ----------------------------------------------------
 
--- WalkSpeed Toggle
-local WalkToggle = PlayerTab:CreateToggle({
+PlayerTab:CreateToggle({
     Name = "Enable WalkSpeed",
     CurrentValue = false,
     Flag = "WalkToggle",
@@ -99,8 +89,7 @@ local WalkToggle = PlayerTab:CreateToggle({
     end,
 })
 
--- WalkSpeed Slider
-local WalkSpeed = PlayerTab:CreateSlider({
+PlayerTab:CreateSlider({
     Name = "Walk Speed",
     Range = {0, 50},
     Increment = 1,
@@ -111,8 +100,7 @@ local WalkSpeed = PlayerTab:CreateSlider({
     end,
 })
 
--- Fly Toggle
-local FlyToggle = PlayerTab:CreateToggle({
+PlayerTab:CreateToggle({
     Name = "Enable Fly",
     CurrentValue = false,
     Flag = "FlyToggle",
@@ -121,8 +109,7 @@ local FlyToggle = PlayerTab:CreateToggle({
     end,
 })
 
--- Fly Speed Slider
-local FlySpeed = PlayerTab:CreateSlider({
+PlayerTab:CreateSlider({
     Name = "Fly Speed",
     Range = {0, 200},
     Increment = 5,
@@ -133,8 +120,7 @@ local FlySpeed = PlayerTab:CreateSlider({
     end,
 })
 
--- HeadSize Toggle
-local HeadToggle = PlayerTab:CreateToggle({
+PlayerTab:CreateToggle({
     Name = "Enable Head Size",
     CurrentValue = false,
     Flag = "HeadToggle",
@@ -143,8 +129,7 @@ local HeadToggle = PlayerTab:CreateToggle({
     end,
 })
 
--- Head Size Slider
-local HeadSize = PlayerTab:CreateSlider({
+PlayerTab:CreateSlider({
     Name = "Other Player Head Size",
     Range = {1.0, 5.0},
     Increment = 0.1,
